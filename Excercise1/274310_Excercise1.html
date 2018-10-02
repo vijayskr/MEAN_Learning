@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MEAN Excercise1 HTML</title>
+</head>
+<style>
+    .content {
+        max-width: 500px;
+        margin: auto;
+    }
+</style>
+<body>
+    <div class="content">
+        <form>
+            <p>
+                Fields Marked (*) are Required
+            </p>
+            <fieldset>
+                <legend>Input Text Field Validation</legend>
+                First Name *:
+                <input type="text" name="firstname" placeholder="First Name" required><br><br>   
+                Last Name *:
+                <input type="text" name="lastname" placeholder="Last Name" required>
+            </fieldset>
+            <fieldset>
+                    <legend>Email and URL Validation</legend>
+                    Email *
+                    <input type="email" name="emailID" placeholder="e.g swapnil@example.com" required><br><br>   
+                    Website *
+                    <input type="url" name="urlInfo" placeholder="e.g. http://www.html5andcss3.org" required>
+            </fieldset>
+            <fieldset>
+                    <legend>Mobile or Phone Number Validation</legend>
+                    Mobile *
+                    <input type="text" name="phnumber" placeholder="Please enter 10 digit phone number" required><br>
+            </fieldset>
+            <fieldset>
+                    <legend>Drop Down Box Validation</legend>
+                    Country *
+                    <select required>
+                            <option value="india">India</option>
+                            <option value="usa">USA</option>
+                            <option value="canada">Canada</option>
+                    </select><br>  
+            </fieldset>
+            <fieldset>
+                    <legend>Number Validation with Specific Range</legend>
+                    Post Code *
+                    <input type="text" pattern="[0-9]{5}" required><br>  
+            </fieldset>
+            <fieldset>
+                    <legend>Text Area Validation</legend>
+                    Address *
+                    <textarea rows="6" cols="50" required></textarea>
+            </fieldset>
+            <fieldset>
+                    <legend>CheckBox and Radio Button Validation</legend>
+                    Agree T & C *
+                    <input type="checkbox" name="terms" ><br>   
+                    Gender *
+                    <input type="radio" name="male" required> Male
+                    <input type="radio" name="male" required> Female
+            </fieldset>
+            <fieldset>
+                    <legend>Password Validation using Pattern</legend>
+                    Password *
+                    <input type="password" name="passwd" required><br>   
+            </fieldset>
+            <input type="submit" value="Sign Up" style="float: right;">
+        </form>
+    </div>        
+</body>
+</html>

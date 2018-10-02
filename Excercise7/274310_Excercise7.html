@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MEAN Excercise7 HTML</title>
+    <script src="./274310_Excercise7.js"></script>
+</head>
+
+<body>
+    <div>
+        <p id="tstP">This is test sample</p>
+        <input type="submit" name="chgPTag" value="Change P" onclick="chg_p()" />
+    </div>
+    <br />
+    <div>
+        <input type="text" name="frstName" id="firstName" placeholder="First Name" />
+        <input type="text" name="lstName" id="lastName" placeholder="Last Name" />
+        <br />
+        <input type="submit" name="gtName" value="Get First and Last Name" onclick="getName()" />
+    </div>
+    <div>
+        <p id="bgPara">This is test sample for BG Color</p>
+        <input type="submit" name="chgBgPTag" value="Change Bg" onclick="chg_p_Bg()" />
+    </div>
+    <br />
+    <div>
+        <p>
+            <a id="linkattr" type="text/html" hreflang="en-us" rel="nofollow" target="_self" href="https://www.google.com/">www.google.com</a>
+        </p>
+        <button onclick="getAttributes()">Click here to get attributes value</button>
+    </div>
+    <br />
+    <div>
+        <table id="tbl1">
+            <thead>Sample Table Test</thead>
+            <tr>
+                <th>Row1Column1</th>
+                <th>Row1Column2</th>
+            </tr>
+            <tr>
+                <th>Row2Column1</th>
+                <th>Row2Column2</th>
+            </tr>
+        </table>
+        <button onclick="addTableRow()">Insert Table Row</button>
+    </div>
+    <br />
+
+    <table id="myTable" border="1">
+        <tr>
+            <td>Row1 cell1</td>
+            <td>Row1 cell2</td>
+        </tr>
+        <tr>
+            <td>Row2 cell1</td>
+            <td>Row2 cell2</td>
+        </tr>
+        <tr>
+            <td>Row3 cell1</td>
+            <td>Row3 cell2</td>
+        </tr>
+    </table>
+    <br />
+    <p>
+        <input type="button" onclick="changeContent('myTable', 0, 0, 'Hello')" value="Change content">
+    </p>
+    <br />
+    <select id="mySelect">
+        <option>Apple</option>
+        <option>Pear</option>
+        <option>Banana</option>
+        <option>Orange</option>
+    </select>
+    <input type="button" onclick="removeOption()" value="Remove the selected option">
+    <br />
+    <br />
+    <div id="myDynamicTable">
+        <label for="rowsText">Enter Rows</label>
+        <input type="text" id="rowTxt" name="rowsText" />
+        <label for="colsText">Enter Cols</label> 
+        <input type="text" id="colTxt" name="colsText" />
+            <button id="create" onclick="createTable()">create table</button>
+            <br />
+        </div>
+        <br /> <br />
+</body>
+
+</html>

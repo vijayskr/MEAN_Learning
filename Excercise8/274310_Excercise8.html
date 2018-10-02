@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>MEAN Excercise7 HTML</title>
+    <script src="./274310_Excercise8.js"></script>
+</head>
+
+<body>
+    <button onclick="getDateTime()">Click to Get Day & Time </button>
+    <div id="time">
+    </div>
+    <br />
+    <button onclick="printWin()">Print Window</button>
+    <br />
+    <button onclick="printDate()">Get Date</button>
+    <div id="pDate"></div>
+    <br />
+    <button onclick="randNumberGuess()">Random Number Guess</button>
+    <br />
+    <button onclick="getURL()">Get URL</button>
+
+    <br />
+    <div id="MultiDiv">
+        <label for="number1">Enter First Number : </label>
+        <input id="num1" name="number1" type="text" />
+        <br />
+        <label for="number2">Enter Second Number : </label>
+        <input id="num2" name="number2" type="text" />
+        <br />
+        <button onclick="multiply()">Muliply</button>
+        <button onclick="divide()">Divide</button>
+        <div id="MultiDivRes">
+
+        </div>
+    </div>
+    <br />
+
+    <div id="convCase">
+        <br />
+        <input type="text"  disabled id="casecnvt" width="auto" style='border: none' value="this string has to be converted to capitalize first letter of each word" / >
+        <br />
+        <button onclick="convertCase(document.getElementById('casecnvt').value)">Convert Case</button>
+        <div id="casecnvtres">
+
+        </div>
+    </div>
+</body>
+
+</html>

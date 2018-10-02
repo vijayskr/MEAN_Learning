@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <title>MEAN Excercise4 HTML</title>
+    <script>
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }
+    </script>
+</head>
+<style>
+ul li {
+    background: rgb(99, 231, 99);
+    padding: 5px;
+    margin-left: 35px;
+    color: black;
+}
+#others, #music, #videos, #docs, #images {
+    float: left;
+    width: 40px;
+    height: 15px;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid black;
+}
+</style>
+<body>
+    <div>
+        <h1 align="center">HTML5 Drag and Drop</h1>
+        <h3 align="center">Drag List of Items on Dust Bin</h3>
+        <div class="row">
+                <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <img src="dust_bin.jpg" style="max-height: 200px; max-width: 200px; float: left;" id="imgsrc"/>
+                </div>
+            <div class="column">
+                        <ul style="float: left; list-style-type:none;">
+                                <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                                    <li draggable="true" ondragstart="drag(event)" id="music">Music</li><br />
+                                </div>
+                                <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <li draggable="true" ondragstart="drag(event)" id="docs">Docs</li><br />
+                            </div>
+                            <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <li draggable="true" ondragstart="drag(event)" id="videos">Videos</li><br />
+                            </div>
+                            <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <li draggable="true" ondragstart="drag(event)" id="images">Images</li><br />
+                            </div>
+                            <div class="column" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <li draggable="true" ondragstart="drag(event)" id="others">Others</li><br />
+                            </div>
+                        </ul>    
+           </div>
+        </div>
+    </div>
+</body>
