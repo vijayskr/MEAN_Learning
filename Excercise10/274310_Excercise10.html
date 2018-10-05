@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        function click1() {
+            $("#txtRslt").text($("#name1").val());
+        };
+
+        $("#btn1").click(function () {
+            $("#btn1").prop('value', 'Save');
+            $("#btn1").button('refresh');
+        });
+    </script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+
+    
+</head>
+
+<body>
+    <div id="ex1">
+        <label>Name: </label>
+        <input type="text" id="name1">
+        <br />
+        <div>
+            <button id="btn1" onclick="click1()">Print Name</button>
+        </div>
+        <p id="txtRslt">
+
+        </p>
+    </div>
+
+    <div id="ex2">
+        <input type="button" id="btn1" value="Change Value" />
+    </div>
+</body>
+
+</html>
