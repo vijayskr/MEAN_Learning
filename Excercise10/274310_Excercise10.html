@@ -2,21 +2,49 @@
 <html>
 
 <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
+
+        function click3(){
+            var myOptions = {
+                val1: 'Blue',
+                val2: 'Orange'
+            };
+            var mySelect = $('#myColors');
+            $.each(myOptions, function (val, text) {
+                mySelect.append(
+                    $('<option></option>').val(val).html(text)
+                );
+            });
+        };
+
         function click1() {
             $("#txtRslt").text($("#name1").val());
         };
 
-        $("#btn1").click(function () {
-            $("#btn1").prop('value', 'Save');
-            $("#btn1").button('refresh');
-        });
+
+        function click4() {
+
+            $('body').css('background-image', 'url("https://www.w3resource.com/includes/jquery-images/jquery.gif")');
+        }
+
+$(document).ready(function(e) {
+$("#btn2").click(function() {
+    $(this).val("Button Clicked");
+});
+});
+
+on('click',function(){
+
+   	 self.val("Hide");  
+
+});
+
     </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
 
-    
+
 </head>
 
 <body>
@@ -33,7 +61,27 @@
     </div>
 
     <div id="ex2">
-        <input type="button" id="btn1" value="Change Value" />
+        <input type="button" id="btn2"  value="Show" /> <br /> <br />
+    </div>
+    <br />
+
+    <div id="ex3">
+
+        <p>List of Colors :</p>
+        <select id='myColors'>
+            <option value="Red">Red</option>
+            <option value="Green">Green</option>
+            <option value="White">White</option>
+            <option value="Black">Black</option>
+        </select>
+        <br /><br />
+        <button id="btn3" onclick="click3()"> Add Options to Drop Box </button>
+
+    </div>
+
+    <div id="ex4">
+        <br /> <br />
+        <button id="btn4" onclick="click4()"> Change Background Image </button>
     </div>
 </body>
 
