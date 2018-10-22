@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 <div>
   <h2>List of Authors</h2>
     <ul class="list-group list-group-flush">
@@ -5,5 +7,11 @@
           {{ author }}
         </li>
       </ul>
+
+      <span class="fa"
+       [class.fa-star]="isFav"
+       [class.fa-star-o]="!isFav"
+       (click)="onClick()">
+      </span>
 </div>
 
