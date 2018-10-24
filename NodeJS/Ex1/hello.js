@@ -1,3 +1,4 @@
-export function world() {
+/*export function world() {
     console.log('Hello World');
 }
+*/
