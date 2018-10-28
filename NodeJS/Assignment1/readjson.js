@@ -1,26 +1,37 @@
+/*
 const fs = require('fs');
-var express = require('express');
-var bodyParser = require('body-parser');
+var http = require('http');
 
-var app = express();
-app.use(bodyParser.urlencoded({ extended: true })); 
+var data = ' ';
 
-fs.readFile('emp.json', 'utf8', (err, fileContents) => {
-  if (err) {
-    console.error(err)
-    return
+fs.readFile('emp.json', 'utf8', (fileContents) => {
+    data = JSON.stringify(fileContents);
+    console.log(data.toString());
+});
+*/
+
+var http = require("http");
+var options = {
+  hostname: 'http://127.0.0.1',
+  port: 8080,
+  path: '/myjson',
+  method: 'POST',
+  headers: {
+      'Content-Type': 'application/json',
   }
-  try {
-    const data = JSON.parse(fileContents)
-  } catch(err) {
-    console.error(err)
-  }
+};
 
-  app.post('/myjson', function(res, data) {
-    res.send('Your JSON Data ' + data );
+var req = http.request(options, function(res) {
+  console.log('Status: ' + res.statusCode);
+  console.log('Headers: ' + JSON.stringify(res.headers));
+  res.setEncoding('utf8');
+  res.on('data', function (body) {
+    console.log('Body: ' + body);
   });
-
-  app.listen(8080, function() {
-    console.log('Server running at http://127.0.0.1:8080/');
-  });
-})
+});
+req.on('error', function(e) {
+  console.log('problem with request: ' + e.message);
+});
+// write data to request body
+req.write('{"string": "Hello, World"}');
+req.end();
