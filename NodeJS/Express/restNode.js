@@ -10,6 +10,7 @@ app.get("/listUsers", function(request, response) {
     response.end(data);
   });
 });
+
 app.get("/add/:x/:y", function(request, response) {
   var x = request.params.x;
   var y = request.params.y;
@@ -17,6 +18,7 @@ app.get("/add/:x/:y", function(request, response) {
   console.log(result);
   response.end("" + result);
 });
+
 var server = app.listen(8585, function() {
   var host = server.address().address;
   var port = server.address().port;
