@@ -1,4 +1,4 @@
-﻿import { OnInit, Component } from "@angular/core";
+﻿import { OnInit, Component } from '@angular/core';
 import { User } from '../models/user.model';
 
 @Component({
@@ -14,7 +14,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit() {
   }
 
-  register(user: User): void{
+  register(user: User): void {
     console.log(user);
   }
 }
