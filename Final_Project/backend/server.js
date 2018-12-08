@@ -4,6 +4,10 @@ var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var express = require('express');
 
+//File Upload & Download
+var gridfs = require("gridfs-stream");
+var fs = require('fs');
+
 var user = require('./models/users');
 
 const app = express();
@@ -12,8 +16,9 @@ const router = express.Router();
 app.use(cors());
 app.use(bodyparser.json());
 mongoose.connect('mongodb://localhost:27017/test');
-
-const connection =mongoose.connection;
+const connection = mongoose.connection;
+mongoose.Promise = global.Promise;
+gridfs.mongo = mongoose.mongo;
 
 connection.once('open', () => {
     console.log('Connected to MongoDB in port 27017');
@@ -51,6 +56,53 @@ router.route('/users/delete/:id').get((req, res) => {
             res.json('Successfully Deleted');
     });
 });
+
+//Upload File to MongoDB
+router.route('/users/file/upload/:id').get((req, res) => {
+		
+		var filename = req.query.filename;
+        console.log('Inside Upload1');
+        
+        var writestream = gfs.createWriteStream({ filename: filename });
+        fs.createReadStream(__dirname + "/uploads/" + filename).pipe(writestream);
+        writestream.on('close', (file) => {
+            res.json('Stored File: ' + file.filename);
+        });
+        res.json('Inside the function call');
+        console.log('Inside Upload');
+});
+
+//Download File from MongoDB
+router.route("/users/file/download/:id", (req, res) => {
+  var filename = req.query.filename;
+
+  gfs.exist({ filename: filename }, (err, file) => {
+    if (err || !file) {
+      res.status(404).send("File Not Found");
+      return;
+    }
+
+    var readstream = gfs.createReadStream({ filename: filename });
+    readstream.pipe(res);
+  });
+});	
+
+//Delete File from MongoDB
+ router.route("/users/file/delete/:id", (req, res) => {
+   var filename = req.query.filename;
+
+   gfs.exist({ filename: filename }, (err, file) => {
+     if (err || !file) {
+       res.status(404).send("File Not Found");
+       return;
+     }
+
+     gfs.remove({ filename: filename }, err => {
+       if (err) res.status(500).send(err);
+       res.send("File Deleted");
+     });
+   });
+ });
 
 app.use('/', router);
 app.listen(4000, () => { 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -7,8 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./newemployee.component.css']
 })
 export class NewemployeeComponent implements OnInit {
+  form: FormGroup;
 
-  constructor() { }
+  constructor(fb: FormBuilder) {
+    this.form = fb.group({
+      name: ['', Validators.required],
+      email: [''],
+      age: ''
+    });
+  }
 
   ngOnInit() {
   }

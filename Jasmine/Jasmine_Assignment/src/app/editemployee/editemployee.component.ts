@@ -1,3 +1,4 @@
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./editemployee.component.css']
 })
 export class EditemployeeComponent implements OnInit {
+  form: FormGroup;
 
-  constructor() { }
+  constructor(fb: FormBuilder) {
+        this.form = fb.group({
+          name: ['', Validators.required],
+          email: [''],
+          age: ''
+        });
+  }
 
   ngOnInit() {
   }
