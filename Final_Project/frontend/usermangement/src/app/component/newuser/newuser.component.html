@@ -1,0 +1,32 @@
+<div>
+  <br />
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Create a New User</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="createForm" class="create-form" >
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="First Name" fromControlName="fName" #fname />
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Last Name" fromControlName="lName" #lname />
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="E-Mail" fromControlName="email" #email />
+      </mat-form-field>
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="SSOID" fromControlName="ssoid" #ssoid />
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br />
+      <br />
+      <button type="submit" (click)="addUser(fname.value, lname.value, email.value, ssoid.value)" mat-raised-button
+        color="primary">Register</button>
+        or
+      <button mat-raised-button color="accent" routerLink="/list">Cancel</button>
+    </form>
+  </mat-card>
+</div>
+<!--  [disabled]="this.createForm.pristine || this.createForm.invalid"-->
